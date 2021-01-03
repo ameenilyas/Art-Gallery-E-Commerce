@@ -16,6 +16,7 @@
   margin-left: 20px;
   font-size: 20px;
   border: none;
+  outline: none;
 }
 .tweetBox__tweetButton {
   background-color: var(--twitter-color) !important;
@@ -32,4 +33,5 @@
 .tweetBox__imageInput {
   border: 20px;
   padding: 20px;
+  outline: none;
 }

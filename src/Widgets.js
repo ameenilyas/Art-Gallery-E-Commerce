@@ -6,7 +6,7 @@ import {
   TwitterTweetEmbed,
 } from "react-twitter-embed";
 import "./Widgets.css";
- 
+
 function Widgets() {
   return (
     <div className="widgets">
@@ -16,15 +16,15 @@ function Widgets() {
       </div>
       <div className="widgets__widgetContainer">
         <h2>What's Happening</h2>
-        <TwitterTweetEmbed tweetId={"858551177860055040"} />
+        <TwitterTweetEmbed tweetId={"1343973546322780162"} />
         <TwitterTimelineEmbed
           sourceType="profile"
-          screenName={"cleverqazi"}
+          screenName={"@afridi"}
           options={{ height: 400 }}
         />
         <TwitterShareButton
-          url={"https://facebook.com/cleverprogrammer"}
-          options={{ text: "#React JS is Awesome", via: "cleverqazi" }}
+          url={"https://facebook.com/shahidafridi"}
+          options={{ text: "#React JS is Awesome", via: "afridi" }}
         />
       </div>
     </div>

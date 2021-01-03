@@ -1,22 +1,26 @@
 import { Avatar, Button } from "@material-ui/core";
 import React, { useState } from "react";
 import "./TweetBox.css";
-import db from "./firebase";
+import { useStateValue } from "./StateProvider";
 
 export default function TweetBox() {
   const [tweetMessage, setTweetMessage] = useState("");
   const [tweetImage, setTweetImage] = useState("");
+  const [{}, dispatch] = useStateValue();
 
   const sendTweet = (e) => {
     e.preventDefault();
-    db.collection("posts").add({
-      displayName: "Bugs Bunny",
-      Username: "bugsbunny",
-      verified: true,
-      text: tweetMessage,
-      image: tweetImage,
-      avatar:
-        "https://static.wikia.nocookie.net/worldofmayhem_gamepedia_en/images/2/2b/Bugs_Bunny.png/revision/latest/scale-to-width-down/256?cb=20181006100648",
+    dispatch({
+      type: "SET_POST",
+      post: {
+        displayName: "Shahid Afridi",
+        Username: "Shahid",
+        verified: true,
+        text: tweetMessage,
+        image: tweetImage,
+        avatar:
+          "https://dailytimes.com.pk/assets/uploads/2020/06/Shahid-Afridi-Age-Height-Weight-Wife-Affairs_resize.png",
+      },
     });
     setTweetMessage("");
     setTweetImage("");
@@ -27,7 +31,7 @@ export default function TweetBox() {
         <div className="tweetBox__input">
           <Avatar
             src={
-              "https://b-rights.com/wp-content/uploads/2013/06/01TOMUK12_CAAB_TJFG6.jpg"
+              "https://dailytimes.com.pk/assets/uploads/2020/06/Shahid-Afridi-Age-Height-Weight-Wife-Affairs_resize.png"
             }
           />
           <input
@@ -43,7 +47,11 @@ export default function TweetBox() {
           placeholder="Optional: Enter Image URL"
           type="text"
         />
-        <Button onClick={sendTweet} className="tweetBox__tweetButton">
+        <Button
+          disabled={!tweetMessage}
+          onClick={sendTweet}
+          className="tweetBox__tweetButton"
+        >
           Tweet
         </Button>
       </form>

@@ -1,6 +1,10 @@
 * {
   margin: 0;
 }
+input {
+  border: none;
+  outline: none;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
