@@ -1,0 +1,40 @@
+.banner {
+  background: url("https://homedesignlover.com/wp-content/uploads/2014/01/3-windawrd.jpg ")
+    center no-repeat;
+  background-size: cover;
+  height: 65vh;
+  position: relative;
+}
+.banner__info {
+  background: black;
+  color: white;
+  padding-top: 19vh;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 40px;
+  width: 300px;
+}
+.banner__info > button {
+  background-color: #ff7779;
+  color: white;
+  text-transform: inherit;
+  margin-top: 20px;
+  font-weight: 600;
+}
+.banner__info > button:hover {
+  color: #ff7779 !important;
+  background-color: #fff !important;
+}
+.banner__info > h5 {
+  margin-top: 5px;
+}
+.banner__search {
+  display: flex;
+  flex-direction: column;
+}
+.banner__searchButton {
+  background-color: white !important;
+  font-weight: 900 !important;
+  text-transform: inherit !important;
+  color: #ff7779 !important;
+}
