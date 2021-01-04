@@ -1,19 +1,53 @@
 export const initialState = {
-  term: null,
-  //   boy: "King Ameen",
+  images: [],
+  basket: [],
+  favorites: [],
 };
 
-export const actionTypes = {
-  SET_ACTION_TYPE: "SET_ACTION_TYPE",
-};
+export const getBasketTotal = (basket) =>
+  basket.reduce((total, item) => item.price + total, 0);
 
 const reducer = (state, action) => {
-  console.log(state, action);
   switch (action.type) {
-    case actionTypes.SET_ACTION_TYPE:
+    case "ADD_PHOTOS":
       return {
         ...state,
-        term: action.term,
+        images: action.data,
+      };
+    case "ADD_TO_BASKET":
+      return {
+        ...state,
+        basket: [...state.basket, action.item],
+      };
+    case "ADD_TO_FAVORITE":
+      let newFavorite = [...state.favorites];
+      newFavorite = newFavorite.filter(
+        (favorite) => favorite.id !== action.item.id
+      );
+      return {
+        ...state,
+        favorites: [...newFavorite, action.item],
+      };
+    case "REMOVE_FROM_BASKET":
+      let newBasket = [...state.basket];
+      let basketIndex = newBasket.findIndex((item) => item.id === action.id);
+      newBasket.splice(basketIndex, 1);
+      return {
+        ...state,
+        basket: newBasket,
+      };
+    case "REMOVE_FROM_FAVORITE":
+      let newFavorites = [...state.favorites];
+      let favIndex = newFavorites.findIndex((item) => item.id === action.id);
+      newFavorites.splice(favIndex, 1);
+      return {
+        ...state,
+        favorites: newFavorites,
+      };
+    case "EMPTY_BASKET":
+      return {
+        ...state,
+        basket: [],
       };
     default:
       return state;
