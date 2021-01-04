@@ -1,15 +1,19 @@
-export const initialization = {
-  posts: [],
-  user: null,
+export const initialState = {
+  term: null,
+  //   boy: "King Ameen",
+};
+
+export const actionTypes = {
+  SET_ACTION_TYPE: "SET_ACTION_TYPE",
 };
 
 const reducer = (state, action) => {
-  console.log(state);
+  console.log(state, action);
   switch (action.type) {
-    case "SET_POST":
+    case actionTypes.SET_ACTION_TYPE:
       return {
         ...state,
-        posts: [...state.posts, action.post],
+        term: action.term,
       };
     default:
       return state;
